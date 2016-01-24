@@ -146,14 +146,12 @@ public class FPVTutorialActivity extends Activity implements SurfaceTextureListe
         mVideoSurface = (TextureView)findViewById(R.id.video_previewer_surface);
 
         viewTimer = (TextView) findViewById(R.id.timer);
-        captureAction = (Button) findViewById(R.id.button1);
         recordAction = (Button) findViewById(R.id.button2);
         captureMode = (Button) findViewById(R.id.button3);
 
         if (null != mVideoSurface) {
             mVideoSurface.setSurfaceTextureListener(this);
         }
-        captureAction.setOnClickListener(this);
         recordAction.setOnClickListener(this);
         captureMode.setOnClickListener(this);
 
@@ -359,10 +357,7 @@ public class FPVTutorialActivity extends Activity implements SurfaceTextureListe
         }
 
         switch (v.getId()) {
-            case R.id.button1:{
-                captureAction();
-                break;
-            }
+
             case R.id.button2:{
                 recordAction();
                 break;
@@ -375,44 +370,7 @@ public class FPVTutorialActivity extends Activity implements SurfaceTextureListe
                 break;
         }
     }
-    // function for taking photo
-    private void captureAction(){
 
-        CameraMode cameraMode = CameraMode.ShootPhoto;
-
-        mCamera = mProduct.getCamera();
-
-        mCamera.setCameraMode(cameraMode, new DJICompletionCallback(){
-
-            @Override
-            public void onResult(DJIError error)
-            {
-
-                if (error == null) {
-                    CameraShootPhotoMode photoMode = CameraShootPhotoMode.Single; // Set the camera capture mode as Single mode
-
-                    mCamera.startShootPhoto(photoMode, new DJICompletionCallback(){
-
-                        @Override
-                        public void onResult(DJIError error)
-                        {
-                            if (error == null) {
-                                showToast("take photo: success");
-                            }else {
-                                showToast(error.getDescription());
-                            }
-                        }
-
-                    }); // Execute the startShootPhoto API
-                } else {
-                    showToast(error.getDescription());
-                }
-
-            }
-
-        });
-
-    }
     // function for starting recording
     private void recordAction(){
         CameraMode cameraMode = CameraMode.RecordVideo;

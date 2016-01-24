@@ -46,16 +46,8 @@
       android:layout_height="wrap_content"
       android:orientation="horizontal"
       android:layout_alignParentBottom="true">
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content"
-        android:text="Capture" 
-        android:textSize="12sp"/>
 
-    <Button
+         <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -69,8 +61,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="Stop recording" 
+        android:text="Stop recording"
         android:textSize="12sp"/>
     <TextView
         android:id="@+id/timer"
